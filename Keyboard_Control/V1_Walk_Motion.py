@@ -50,6 +50,8 @@ groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, 116, 4)
 
 center_data = 2048
 
+dxl_goal_position = center_data
+
 dxl_goal_position_L = center_data
 dxl_goal_position_R = center_data
 
@@ -62,116 +64,118 @@ dxl_goal_position_ten_L_D = center_data - 512
 dxl_goal_position_ten_R_D = center_data + 512
 
 
-
 # General Posture
 # Nothing to Press(Default)
+# Push 1
+if getch() == chr(49):
 
-# odd Leg
+    # odd Leg
 
-# leg 1
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(1, param_goal_position)
+    # leg 1
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(1, param_goal_position)
 
-dxl_goal_position = center_data - 512
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(11, param_goal_position)
+    dxl_goal_position = center_data - 512
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(11, param_goal_position)
 
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(21, param_goal_position)
-    
-dxl_comm_result = groupSyncWrite.txPacket()
-groupSyncWrite.clearParam()
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(21, param_goal_position)
 
-# leg 3
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(3, param_goal_position)
+    dxl_comm_result = groupSyncWrite.txPacket()
+    groupSyncWrite.clearParam()
 
-dxl_goal_position = center_data + 512
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(13, param_goal_position)
+    # leg 3
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(3, param_goal_position)
 
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(23, param_goal_position)
-    
-dxl_comm_result = groupSyncWrite.txPacket()
-groupSyncWrite.clearParam()
+    dxl_goal_position = center_data + 512
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(13, param_goal_position)
 
-# leg 5
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(5, param_goal_position)
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(23, param_goal_position)
 
-dxl_goal_position = center_data - 512
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(15, param_goal_position)
+    dxl_comm_result = groupSyncWrite.txPacket()
+    groupSyncWrite.clearParam()
 
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(25, param_goal_position)
-    
-dxl_comm_result = groupSyncWrite.txPacket()
-groupSyncWrite.clearParam()
+    # leg 5
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(5, param_goal_position)
 
-time.sleep(1)
+    dxl_goal_position = center_data - 512
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(15, param_goal_position)
 
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(25, param_goal_position)
 
-# even Leg
+    dxl_comm_result = groupSyncWrite.txPacket()
+    groupSyncWrite.clearParam()
 
-# leg 2
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(2, param_goal_position)
-
-dxl_goal_position = center_data + 512
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(12, param_goal_position)
-
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(22, param_goal_position)
-    
-dxl_comm_result = groupSyncWrite.txPacket()
-groupSyncWrite.clearParam()
+#    time.sleep(0.5)
 
 
-# leg 4
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(4, param_goal_position)
+    # even Leg
 
-dxl_goal_position = center_data - 512
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(14, param_goal_position)
+    # leg 2
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(2, param_goal_position)
 
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(24, param_goal_position)
-    
-dxl_comm_result = groupSyncWrite.txPacket()
-groupSyncWrite.clearParam()
-    
-# leg 6
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(6, param_goal_position)
+    dxl_goal_position = center_data + 512
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(12, param_goal_position)
 
-dxl_goal_position = center_data + 512
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(16, param_goal_position)
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(22, param_goal_position)
 
-dxl_goal_position = center_data
-param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-dxl_addparam_result = groupSyncWrite.addParam(26, param_goal_position)
-    
-dxl_comm_result = groupSyncWrite.txPacket()
-groupSyncWrite.clearParam()
+    dxl_comm_result = groupSyncWrite.txPacket()
+    groupSyncWrite.clearParam()
 
 
-time.sleep(1)
+    # leg 4
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(4, param_goal_position)
+
+    dxl_goal_position = center_data - 512
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(14, param_goal_position)
+
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(24, param_goal_position)
+
+    dxl_comm_result = groupSyncWrite.txPacket()
+    groupSyncWrite.clearParam()
+
+    # leg 6
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(6, param_goal_position)
+
+    dxl_goal_position = center_data + 512
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(16, param_goal_position)
+
+    dxl_goal_position = center_data
+    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
+    dxl_addparam_result = groupSyncWrite.addParam(26, param_goal_position)
+
+    dxl_comm_result = groupSyncWrite.txPacket()
+    groupSyncWrite.clearParam()
+
+
+#    time.sleep(0.5)
+
 
 
 # Walk Posture
@@ -265,7 +269,7 @@ if getch() == chr(50):
     dxl_comm_result = groupSyncWrite.txPacket()
     groupSyncWrite.clearParam()
 
-    time.sleep(0.1)
+#    time.sleep(0.1)
 
 
     # even Leg
@@ -320,7 +324,7 @@ if getch() == chr(50):
     groupSyncWrite.clearParam()
 
 
-    time.sleep(0.1)
+#    time.sleep(0.1)
 
 
 
@@ -334,8 +338,8 @@ while True:
 #    ch = getch()
 
     # 전진
-    # Push 1
-    if getch() == chr(49):
+    # Push 3
+    if getch() == chr(51):
 
         # odd Leg
         # mid (ten) (Up Motion)
@@ -369,7 +373,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
 
         # up
@@ -406,7 +410,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
 
         # mid (ten) (Down Motion)
@@ -441,7 +445,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
 
 
@@ -474,7 +478,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
         # odd Leg Rotate Back
         # up
@@ -511,7 +515,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
 
 
@@ -548,7 +552,7 @@ while True:
 
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
 
 
@@ -586,7 +590,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
 
 
@@ -625,7 +629,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
 
 
@@ -663,7 +667,7 @@ while True:
 
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
         # mid (ten) (Down Motion)
         dxl_goal_position_ten_L_D = center_data - 512
@@ -697,7 +701,7 @@ while True:
         groupSyncWrite.clearParam()
 
 
-        time.sleep(1)
+        time.sleep(0.3)
 
     else:
         break
@@ -894,7 +898,7 @@ while True:
         time.sleep(1)
 """
 
-    
+
 
 
 
@@ -916,7 +920,7 @@ while True:
 #    index = index++1
 #    print(index)
 #    time.sleep(2) # 2초간 대기
-   
-    
+
+
 # 포트 닫기
 portHandler.closePort()
