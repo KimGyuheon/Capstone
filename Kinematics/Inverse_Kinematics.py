@@ -1,6 +1,6 @@
 from dynamixel_sdk import *
 import time
-import math # 각도 계산을 위한 것
+import math
 import os
 
 if os.name == 'nt':
@@ -48,8 +48,8 @@ for id in ID:
 # groupSyncWrite 객체 생성
 groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, 116, 4)
 
-# Inverse Kinematics
 
+# Inverse Kinematics
 
 # Command Inputs
 # p"" = control input ,r"" = control input or (zyro"" = zyrosensor미정)
@@ -93,7 +93,7 @@ BodyCenterOffsetY_4 = -BodyCenterOffset2
 BodyCenterOffsetY_5 = 0
 BodyCenterOffsetY_6 = BodyCenterOffset2
 
-math.pi = PI
+PI = math.pi
 # Initial Feet Positions
 # Leg 1
 FeetPosX_1 = math.cos(62.553/180*PI) * (CoxaLength + FemurLength)
@@ -198,154 +198,119 @@ BodyIKZ_6 = RollZ_6 + PitchZ_6
 
 
 
-# Without Inverse Kinematics
-center_data = 2048
 
-dxl_goal_position = center_data
+# Leg Inverse Kinematics
+# Leg 1
+NewPosX_1 = FeetPosX_1 + PosX + BodyIKX_1
+NewPosZ_1 = FeetPosZ_1 + PosZ + BodyIKZ_1
+NewPosY_1 = FeetPosY_1 + PosY + BodyIKY_1
+CoxaFeetDist_1 =math. sqrt(NewPosX_1**2 + NewPosY_1**2)
+IKSW_1 = math.sqrt((CoxaFeetDist_1 - CoxaLength)**2 + NewPosZ_1**2)
+IKA1_1 = math.atan((CoxaFeetDist_1 - CoxaLength) / NewPosZ_1)
+IKA2_1 = math.acos((TibiaLength**2 - FemurLength**2 - IKSW_1**2) / (-2 * IKSW_1 * FemurLength))
+TAngle_1 = math.acos((IKSW_1**2 - TibiaLength**2 - FemurLength**2) / (-2 * FemurLength * TibiaLength))
+IKTibiaAngle_1 = 90 - TAngle_1 * 180/PI
+IKFemurAngle_1 = 90 - (IKA1_1 + IKA2_1) * 180/PI
+IKCoxaAngle_1 = 90 - math.atan2(NewPosY_1, NewPosX_1) * 180/PI
 
-dxl_goal_position_L = center_data
-dxl_goal_position_R = center_data
+# Leg 2
+NewPosX_2 = FeetPosX_2 + PosX + BodyIKX_2
+NewPosZ_2 = FeetPosZ_2 + PosZ + BodyIKZ_2
+NewPosY_2 = FeetPosY_2 + PosY + BodyIKY_2
+CoxaFeetDist_2 = math.sqrt(NewPosX_2**2 + NewPosY_2**2)
+IKSW_2 = math.sqrt((CoxaFeetDist_2 - CoxaLength)**2 + NewPosZ_2**2)
+IKA1_2 = math.atan((CoxaFeetDist_2 - CoxaLength) / NewPosZ_2)
+IKA2_2 = math.acos((TibiaLength**2 - FemurLength**2 - IKSW_2**2) / (-2 * IKSW_2 * FemurLength))
+TAngle_2 = math.acos((IKSW_2**2 - TibiaLength**2 - FemurLength**2)/(-2 * FemurLength * TibiaLength))
+IKTibiaAngle_2 = 90 - TAngle_2 * 180/PI
+IKFemurAngle_2 = 90 - (IKA1_2 + IKA2_2) * 180/PI
+IKCoxaAngle_2 = 90 - math.atan2(NewPosY_2, NewPosX_2) * 180/PI
 
+# Leg 3
+NewPosX_3 = FeetPosX_3 + PosX + BodyIKX_3
+NewPosZ_3 = FeetPosZ_3 + PosZ + BodyIKZ_3
+NewPosY_3 = FeetPosY_3 + PosY + BodyIKY_3
+CoxaFeetDist_3 = math.sqrt(NewPosX_3**2 + NewPosY_3**2)
+IKSW_3 = math.sqrt((CoxaFeetDist_3 - CoxaLength)**2 + NewPosZ_3**2)
+IKA1_3 = math.atan((CoxaFeetDist_3 - CoxaLength) / NewPosZ_3)
+IKA2_3 = math.acos((TibiaLength**2 - FemurLength**2 - IKSW_3**2) / (-2 * IKSW_3 * FemurLength))
+TAngle_3 = math.acos((IKSW_3**2 - TibiaLength**2 - FemurLength**2) / (-2 * FemurLength * TibiaLength))
+IKTibiaAngle_3 = 90 - TAngle_3 * 180/PI
+IKFemurAngle_3 = 90 - (IKA1_3 + IKA2_3) * 180/PI
+IKCoxaAngle_3 = 90 - math.atan2(NewPosY_3, NewPosX_3) * 180/PI
 
-# 10번대 다리 초기위치와 동일하게
-dxl_goal_position_ten_L_U = center_data - 512
-dxl_goal_position_ten_R_U = center_data + 512
+# Leg 4
+NewPosX_4 = FeetPosX_4 + PosX + BodyIKX_4
+NewPosZ_4 = FeetPosZ_4 + PosZ + BodyIKZ_4
+NewPosY_4 = FeetPosY_4 + PosY + BodyIKY_4
+CoxaFeetDist_4 = math.sqrt(NewPosX_4**2 + NewPosY_4**2)
+IKSW_4 = math.sqrt((CoxaFeetDist_4 - CoxaLength)**2 + NewPosZ_4**2)
+IKA1_4 = math.atan((CoxaFeetDist_4 - CoxaLength) / NewPosZ_4)
+IKA2_4 = math.acos((TibiaLength**2 - FemurLength**2 - IKSW_4**2) / (-2 * IKSW_4 *  FemurLength))
+TAngle_4 = math.acos((IKSW_4**2 - TibiaLength**2 - FemurLength**2) / (-2 * FemurLength * TibiaLength))
+IKTibiaAngle_4 = 90 - TAngle_4 * 180/PI
+IKFemurAngle_4 = 90 - (IKA1_4 + IKA2_4) * 180/PI
+IKCoxaAngle_4 = 90 - math.atan2(NewPosY_4, NewPosX_4) * 180/PI
 
-dxl_goal_position_ten_L_D = center_data - 512
-dxl_goal_position_ten_R_D = center_data + 512
+# Leg 5
+NewPosX_5 = FeetPosX_5 + PosX + BodyIKX_5
+NewPosZ_5 = FeetPosZ_5 + PosZ + BodyIKZ_5
+NewPosY_5 = FeetPosY_5 + PosY + BodyIKY_5
+CoxaFeetDist_5 = math.sqrt(NewPosX_5**2 + NewPosY_5**2)
+IKSW_5 = math.sqrt((CoxaFeetDist_5 - CoxaLength)**2 + NewPosZ_5**2)
+IKA1_5 = math.atan((CoxaFeetDist_5 - CoxaLength) / NewPosZ_5)
+IKA2_5 = math.acos((TibiaLength**2 - FemurLength**2 - IKSW_5**2) / (-2 * IKSW_5 *  FemurLength))
+TAngle_5 = math.acos((IKSW_5**2 - TibiaLength**2 - FemurLength**2) / (-2 * FemurLength * TibiaLength))
+IKTibiaAngle_5 = 90 - TAngle_5 * 180/PI
+IKFemurAngle_5 = 90 - (IKA1_5 + IKA2_5) * 180/PI
+IKCoxaAngle_5 = 90 - math.atan2(NewPosY_5, NewPosX_5) * 180/PI
 
-
-
-# General Posture
-# Nothing to Press(Default)
-# Push 1
-if getch() == chr(49):
-
-    # odd Leg
-
-    # leg 1
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(1, param_goal_position)
-
-    dxl_goal_position = center_data - 512
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(11, param_goal_position)
-
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(21, param_goal_position)
-
-    dxl_comm_result = groupSyncWrite.txPacket()
-    groupSyncWrite.clearParam()
-
-    # leg 3
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(3, param_goal_position)
-
-    dxl_goal_position = center_data + 512
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(13, param_goal_position)
-
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(23, param_goal_position)
-
-    dxl_comm_result = groupSyncWrite.txPacket()
-    groupSyncWrite.clearParam()
-
-    # leg 5
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(5, param_goal_position)
-
-    dxl_goal_position = center_data - 512
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(15, param_goal_position)
-
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(25, param_goal_position)
-
-    dxl_comm_result = groupSyncWrite.txPacket()
-    groupSyncWrite.clearParam()
-
-#    time.sleep(0.5)
-
-
-    # even Leg
-
-    # leg 2
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(2, param_goal_position)
-
-    dxl_goal_position = center_data + 512
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(12, param_goal_position)
-
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(22, param_goal_position)
-
-    dxl_comm_result = groupSyncWrite.txPacket()
-    groupSyncWrite.clearParam()
+# Leg 6
+NewPosX_6 = FeetPosX_6 + PosX +  BodyIKX_6
+NewPosZ_6 = FeetPosZ_6 + PosZ + BodyIKZ_6
+NewPosY_6 = FeetPosY_6 + PosY + BodyIKY_6
+CoxaFeetDist_6 = math.sqrt(NewPosX_6**2   + NewPosY_6**2)
+IKSW_6 = math.sqrt((CoxaFeetDist_6 - CoxaLength)**2 + NewPosZ_6**2)
+IKA1_6 = math.atan((CoxaFeetDist_6 - CoxaLength) / NewPosZ_6)
+IKA2_6 = math.acos((TibiaLength**2 - FemurLength**2 - IKSW_6**2) / (-2 * IKSW_6 *  FemurLength))
+TAngle_6 = math.acos((IKSW_6**2 - TibiaLength**2 - FemurLength**2) / (-2 * FemurLength * TibiaLength))
+IKTibiaAngle_6 = 90 - TAngle_6 * 180/PI
+IKFemurAngle_6 = 90 - (IKA1_6 + IKA2_6) * 180/PI
+IKCoxaAngle_6 = 90 - math.atan2(NewPosY_6, NewPosX_6) * 180/PI
 
 
-    # leg 4
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(4, param_goal_position)
+# Dynamixel Angles
+# Leg 1
+CoxaAngle_1 = (IKCoxaAngle_1 - 62.553) * (4086/360)
+FemurAngle_1 = IKFemurAngle_1 * (4086/360)
+TibiaAngle_1 = IKTibiaAngle_1 * (4086/360)
 
-    dxl_goal_position = center_data - 512
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(14, param_goal_position)
+# Leg 2
+CoxaAngle_2 = IKCoxaAngle_2 * (4086/360)
+FemurAngle_2 = IKFemurAngle_2 * (4086/360)
+TibiaAngle_2 = IKTibiaAngle_2 * (4086/360)
 
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(24, param_goal_position)
+# Leg 3
+CoxaAngle_3 = (IKCoxaAngle_3 + 62.553) * (4086/360)
+FemurAngle_3 = IKFemurAngle_3 * (4086/360)
+TibiaAngle_3 = IKTibiaAngle_3 * (4086/360)
 
-    dxl_comm_result = groupSyncWrite.txPacket()
-    groupSyncWrite.clearParam()
+# Leg 4
+CoxaAngle_4 = IKCoxaAngle_4 - (180 + 62.553) * (4086/360)
+FemurAngle_4 = IKFemurAngle_4 * (4086/360)
+TibiaAngle_4 = IKTibiaAngle_4 * (4086/360)
 
-    # leg 6
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(6, param_goal_position)
+# Leg 5
+CoxaAngle_5 = (IKCoxaAngle_5 - 180) * (4086/360)
+FemurAngle_5 = IKFemurAngle_5 * (4086/360)
+TibiaAngle_5 = IKTibiaAngle_5 * (4086/360)
 
-    dxl_goal_position = center_data + 512
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(16, param_goal_position)
-
-    dxl_goal_position = center_data
-    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
-    dxl_addparam_result = groupSyncWrite.addParam(26, param_goal_position)
-
-    dxl_comm_result = groupSyncWrite.txPacket()
-    groupSyncWrite.clearParam()
-
+# Leg 6
+CoxaAngle_6 = (IKCoxaAngle_6 - 180 + 62.553) * (4086/360)
+FemurAngle_6 = IKFemurAngle_6 * (4086/360)
+TibiaAngle_6 = IKTibiaAngle_6 * (4086/360)
 
 
-
-
-
-
-#while True:
-#    print("start")
-#    dxl_goal_position = [0, 2048, 4095] # 순차적으로 goal position 접근
-
-#    param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position[index])), #DXL_HIBYTE(DXL_LOWORD(dxl_goal_position[index])), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position[index])), #DXL_HIBYTE(DXL_HIWORD(dxl_goal_position[index]))]
-
-#    for id in ID:
-#        dxl_addparam_result = groupSyncWrite.addParam(15, param_goal_position) # 모터 각도 추가
-#        dxl_addparam_result = groupSyncWrite.addParam(25, param_goal_position)
-#    dxl_comm_result = groupSyncWrite.txPacket() # 모터 각도 한 번에 설정
-#    groupSyncWrite.clearParam # 추가한 모터 각도 제거
-#    index = index++1
-#    print(index)
-#    time.sleep(2) # 2초간 대기
-   
     
 # 포트 닫기
 portHandler.closePort()
