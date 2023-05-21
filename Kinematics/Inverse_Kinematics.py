@@ -281,36 +281,122 @@ IKCoxaAngle_6 = 90 - math.atan2(NewPosY_6, NewPosX_6) * 180/PI
 
 # Dynamixel Angles
 # Leg 1
-CoxaAngle_1 = (IKCoxaAngle_1 - 62.553) * (4086/360)
-FemurAngle_1 = IKFemurAngle_1 * (4086/360)
-TibiaAngle_1 = IKTibiaAngle_1 * (4086/360)
+CoxaAngle_1 = (IKCoxaAngle_1 - 62.553) * (4096/360)
+FemurAngle_1 = IKFemurAngle_1 * (4096/360)
+TibiaAngle_1 = IKTibiaAngle_1 * (4096/360)
 
 # Leg 2
-CoxaAngle_2 = IKCoxaAngle_2 * (4086/360)
-FemurAngle_2 = IKFemurAngle_2 * (4086/360)
-TibiaAngle_2 = IKTibiaAngle_2 * (4086/360)
+CoxaAngle_2 = IKCoxaAngle_2 * (4096/360)
+FemurAngle_2 = IKFemurAngle_2 * (4096/360)
+TibiaAngle_2 = IKTibiaAngle_2 * (4096/360)
 
 # Leg 3
-CoxaAngle_3 = (IKCoxaAngle_3 + 62.553) * (4086/360)
-FemurAngle_3 = IKFemurAngle_3 * (4086/360)
-TibiaAngle_3 = IKTibiaAngle_3 * (4086/360)
+CoxaAngle_3 = (IKCoxaAngle_3 + 62.553) * (4096/360)
+FemurAngle_3 = IKFemurAngle_3 * (4096/360)
+TibiaAngle_3 = IKTibiaAngle_3 * (4096/360)
 
 # Leg 4
-CoxaAngle_4 = IKCoxaAngle_4 - (180 + 62.553) * (4086/360)
-FemurAngle_4 = IKFemurAngle_4 * (4086/360)
-TibiaAngle_4 = IKTibiaAngle_4 * (4086/360)
+CoxaAngle_4 = IKCoxaAngle_4 - (180 + 62.553) * (4096/360)
+FemurAngle_4 = IKFemurAngle_4 * (4096/360)
+TibiaAngle_4 = IKTibiaAngle_4 * (4096/360)
 
 # Leg 5
-CoxaAngle_5 = (IKCoxaAngle_5 - 180) * (4086/360)
-FemurAngle_5 = IKFemurAngle_5 * (4086/360)
+CoxaAngle_5 = (IKCoxaAngle_5 - 180) * (4096/360)
+FemurAngle_5 = IKFemurAngle_5 * (4096/360)
 TibiaAngle_5 = IKTibiaAngle_5 * (4086/360)
 
 # Leg 6
-CoxaAngle_6 = (IKCoxaAngle_6 - 180 + 62.553) * (4086/360)
-FemurAngle_6 = IKFemurAngle_6 * (4086/360)
-TibiaAngle_6 = IKTibiaAngle_6 * (4086/360)
+CoxaAngle_6 = (IKCoxaAngle_6 - 180 + 62.553) * (4096/360)
+FemurAngle_6 = IKFemurAngle_6 * (4096/360)
+TibiaAngle_6 = IKTibiaAngle_6 * (4096/360)
 
 
+
+# Give Angles to Dynamixel
+
+# Leg 1
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(CoxaAngle_1)), DXL_HIBYTE(DXL_LOWORD(CoxaAngle_1)), DXL_LOBYTE(DXL_HIWORD(CoxaAngle_1)), DXL_HIBYTE(DXL_HIWORD(CoxaAngle_1))]
+dxl_addparam_result = groupSyncWrite.addParam(1, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(FemurAngle_1)), DXL_HIBYTE(DXL_LOWORD(FemurAngle_1)), DXL_LOBYTE(DXL_HIWORD(FemurAngle_1)), DXL_HIBYTE(DXL_HIWORD(FemurAngle_1))]
+dxl_addparam_result = groupSyncWrite.addParam(11, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(TibiaAngle_1)), DXL_HIBYTE(DXL_LOWORD(TibiaAngle_1)), DXL_LOBYTE(DXL_HIWORD(TibiaAngle_1)), DXL_HIBYTE(DXL_HIWORD(TibiaAngle_1))]
+dxl_addparam_result = groupSyncWrite.addParam(21, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+
+
+# Leg 2
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(CoxaAngle_2)), DXL_HIBYTE(DXL_LOWORD(CoxaAngle_2)), DXL_LOBYTE(DXL_HIWORD(CoxaAngle_2)), DXL_HIBYTE(DXL_HIWORD(CoxaAngle_2))]
+dxl_addparam_result = groupSyncWrite.addParam(2, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(FemurAngle_2)), DXL_HIBYTE(DXL_LOWORD(FemurAngle_2)), DXL_LOBYTE(DXL_HIWORD(FemurAngle_2)), DXL_HIBYTE(DXL_HIWORD(FemurAngle_2))]
+dxl_addparam_result = groupSyncWrite.addParam(12, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(TibiaAngle_2)), DXL_HIBYTE(DXL_LOWORD(TibiaAngle_2)), DXL_LOBYTE(DXL_HIWORD(TibiaAngle_2)), DXL_HIBYTE(DXL_HIWORD(TibiaAngle_2))]
+dxl_addparam_result = groupSyncWrite.addParam(22, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+
+
+# Leg 3
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(CoxaAngle_3)), DXL_HIBYTE(DXL_LOWORD(CoxaAngle_3)), DXL_LOBYTE(DXL_HIWORD(CoxaAngle_3)), DXL_HIBYTE(DXL_HIWORD(CoxaAngle_3))]
+dxl_addparam_result = groupSyncWrite.addParam(3, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(FemurAngle_3)), DXL_HIBYTE(DXL_LOWORD(FemurAngle_3)), DXL_LOBYTE(DXL_HIWORD(FemurAngle_3)), DXL_HIBYTE(DXL_HIWORD(FemurAngle_3))]
+dxl_addparam_result = groupSyncWrite.addParam(13, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(TibiaAngle_3)), DXL_HIBYTE(DXL_LOWORD(TibiaAngle_3)), DXL_LOBYTE(DXL_HIWORD(TibiaAngle_3)), DXL_HIBYTE(DXL_HIWORD(TibiaAngle_3))]
+dxl_addparam_result = groupSyncWrite.addParam(23, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+
+
+# Leg 4
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(CoxaAngle_4)), DXL_HIBYTE(DXL_LOWORD(CoxaAngle_4)), DXL_LOBYTE(DXL_HIWORD(CoxaAngle_4)), DXL_HIBYTE(DXL_HIWORD(CoxaAngle_4))]
+dxl_addparam_result = groupSyncWrite.addParam(4, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(FemurAngle_4)), DXL_HIBYTE(DXL_LOWORD(FemurAngle_4)), DXL_LOBYTE(DXL_HIWORD(FemurAngle_4)), DXL_HIBYTE(DXL_HIWORD(FemurAngle_4))]
+dxl_addparam_result = groupSyncWrite.addParam(14, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(TibiaAngle_4)), DXL_HIBYTE(DXL_LOWORD(TibiaAngle_4)), DXL_LOBYTE(DXL_HIWORD(TibiaAngle_4)), DXL_HIBYTE(DXL_HIWORD(TibiaAngle_4))]
+dxl_addparam_result = groupSyncWrite.addParam(24, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+
+
+# Leg 5
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(CoxaAngle_5)), DXL_HIBYTE(DXL_LOWORD(CoxaAngle_5)), DXL_LOBYTE(DXL_HIWORD(CoxaAngle_5)), DXL_HIBYTE(DXL_HIWORD(CoxaAngle_5))]
+dxl_addparam_result = groupSyncWrite.addParam(5, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(FemurAngle_5)), DXL_HIBYTE(DXL_LOWORD(FemurAngle_5)), DXL_LOBYTE(DXL_HIWORD(FemurAngle_5)), DXL_HIBYTE(DXL_HIWORD(FemurAngle_5))]
+dxl_addparam_result = groupSyncWrite.addParam(15, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(TibiaAngle_5)), DXL_HIBYTE(DXL_LOWORD(TibiaAngle_5)), DXL_LOBYTE(DXL_HIWORD(TibiaAngle_5)), DXL_HIBYTE(DXL_HIWORD(TibiaAngle_5))]
+dxl_addparam_result = groupSyncWrite.addParam(25, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+
+
+# Leg 6
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(CoxaAngle_6)), DXL_HIBYTE(DXL_LOWORD(CoxaAngle_6)), DXL_LOBYTE(DXL_HIWORD(CoxaAngle_6)), DXL_HIBYTE(DXL_HIWORD(CoxaAngle_6))]
+dxl_addparam_result = groupSyncWrite.addParam(6, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(FemurAngle_6)), DXL_HIBYTE(DXL_LOWORD(FemurAngle_6)), DXL_LOBYTE(DXL_HIWORD(FemurAngle_6)), DXL_HIBYTE(DXL_HIWORD(FemurAngle_6))]
+dxl_addparam_result = groupSyncWrite.addParam(16, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(TibiaAngle_6)), DXL_HIBYTE(DXL_LOWORD(TibiaAngle_6)), DXL_LOBYTE(DXL_HIWORD(TibiaAngle_6)), DXL_HIBYTE(DXL_HIWORD(TibiaAngle_6))]
+dxl_addparam_result = groupSyncWrite.addParam(26, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+   
     
 # 포트 닫기
 portHandler.closePort()
