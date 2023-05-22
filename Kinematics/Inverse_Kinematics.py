@@ -1,4 +1,4 @@
-awfrom dynamixel_sdk import *
+from dynamixel_sdk import *
 import time
 import math
 import os
@@ -52,12 +52,12 @@ groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, 116, 4)
 
 # Command Inputs
 # p"" = control input ,r"" = control input or (zyro"" = zyrosensor미정)
-PosX = px
-PosY = py
-PosZ = pz
-RotX = rx
-RotY = ry
-RotZ = rz
+PosX = 0
+PosY = 0
+PosZ = 0
+RotX = 0
+RotY = 0
+RotZ = 0
 
 #RotX = zyrox
 #RotY = zyroy
@@ -131,7 +131,7 @@ FeetPosY_6 = math.sin(62.553/180*PI) * (CoxaLength + FemurLength)
 # Leg 1
 TotalY_1 = FeetPosY_1 + BodyCenterOffsetY_1 + PosY
 TotalX_1 = FeetPosX_1 + BodyCenterOffsetX_1 + PosX
-DistBodyCenterFeet_1 = math.sqrt(TotalY_1**2, TotalX_1**2)
+DistBodyCenterFeet_1 = math.sqrt(TotalY_1**2 + TotalX_1**2)
 AngleBodyCenterX_1 = PI/2 - math.atan2(TotalY_1, TotalX_1)
 RollZ_1 = math.tan(RotZ * PI/180) * TotalX_1
 PitchZ_1 = math.tan(RotX * PI/180) * TotalY_1
@@ -142,7 +142,7 @@ BodyIKZ_1 = RollZ_1 + PitchZ_1
 # Leg 2
 TotalY_2 = FeetPosY_2 + BodyCenterOffsetY_2 + PosY
 TotalX_2 = FeetPosX_2 + BodyCenterOffsetX_2 + PosX
-DistBodyCenterFeet_2 = math.sqrt(TotalY_2**2, TotalX_2**2)
+DistBodyCenterFeet_2 = math.sqrt(TotalY_2**2 + TotalX_2**2)
 AngleBodyCenterX_2 = PI/2 - math.atan2(TotalY_2, TotalX_2)
 RollZ_2 = math.tan(RotZ * PI/180) * TotalX_2
 PitchZ_2 = math.tan(RotX * PI/180) * TotalY_2
@@ -153,7 +153,7 @@ BodyIKZ_2 = RollZ_2 + PitchZ_2
 # Leg 3
 TotalY_3 = FeetPosY_3 + BodyCenterOffsetY_3 + PosY
 TotalX_3 = FeetPosX_3 + BodyCenterOffsetX_3 + PosX
-DistBodyCenterFeet_3 = math.sqrt(TotalY_1**2, TotalX_1**2)
+DistBodyCenterFeet_3 = math.sqrt(TotalY_3**2 + TotalX_3**2)
 AngleBodyCenterX_3 = PI/2 - math.atan2(TotalY_3, TotalX_3)
 RollZ_3 = math.tan(RotZ * PI/180) * TotalX_3
 PitchZ_3 = math.tan(RotX * PI/180) * TotalY_3
@@ -164,7 +164,7 @@ BodyIKZ_3 = RollZ_3 + PitchZ_3
 # Leg 4
 TotalY_4 = FeetPosY_4 + BodyCenterOffsetY_4 + PosY
 TotalX_4 = FeetPosX_4 + BodyCenterOffsetX_4 + PosX
-DistBodyCenterFeet_4 = math.sqrt(TotalY_4**2, TotalX_4**2)
+DistBodyCenterFeet_4 = math.sqrt(TotalY_4**2 + TotalX_4**2)
 AngleBodyCenterX_4 = PI/2 - math.atan2(TotalY_4, TotalX_4)
 RollZ_4 = math.tan(RotZ * PI/180) * TotalX_4
 PitchZ_4 = math.tan(RotX * PI/180) * TotalY_4
@@ -175,7 +175,7 @@ BodyIKZ_4 = RollZ_4 + PitchZ_4
 # Leg 5
 TotalY_5 = FeetPosY_5 + BodyCenterOffsetY_5 + PosY
 TotalX_5 = FeetPosX_5 + BodyCenterOffsetX_5 + PosX
-DistBodyCenterFeet_5 = math.sqrt(TotalY_5**2, TotalX_5**2)
+DistBodyCenterFeet_5 = math.sqrt(TotalY_5**2 + TotalX_5**2)
 AngleBodyCenterX_5 = PI/2 - math.atan2(TotalY_5, TotalX_5)
 RollZ_5 = math.tan(RotZ * PI/180) * TotalX_5
 PitchZ_5 = math.tan(RotX * PI/180) * TotalY_5
@@ -186,7 +186,7 @@ BodyIKZ_5 = RollZ_5 + PitchZ_5
 # Leg 6
 TotalY_6 = FeetPosY_6 + BodyCenterOffsetY_6 + PosY
 TotalX_6 = FeetPosX_6 + BodyCenterOffsetX_6 + PosX
-DistBodyCenterFeet_6 = math.sqrt(TotalY_6**2, TotalX_6**2)
+DistBodyCenterFeet_6 = math.sqrt(TotalY_6**2 + TotalX_6**2)
 AngleBodyCenterX_6 = PI/2 - math.atan2(TotalY_6, TotalX_6)
 RollZ_6 = math.tan(RotZ * PI/180) * TotalX_6
 PitchZ_6 = math.tan(RotX * PI/180) * TotalY_6
