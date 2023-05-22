@@ -1,4 +1,4 @@
-from dynamixel_sdk import *
+awfrom dynamixel_sdk import *
 import time
 import math
 import os
@@ -18,7 +18,6 @@ else:
         finally:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
-# 정현
 # 사용할 포트와 프로토콜 버전 설정
 PORT = '/dev/ttyUSB0'
 BAUDRATE = 57600
