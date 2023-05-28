@@ -132,7 +132,7 @@ FeetPosY_6 = math.sin(62.553/180*PI) * (CoxaLength + FemurLength)
 TotalY_1 = FeetPosY_1 + BodyCenterOffsetY_1 + PosY
 TotalX_1 = FeetPosX_1 + BodyCenterOffsetX_1 + PosX
 DistBodyCenterFeet_1 = math.sqrt(TotalY_1**2 + TotalX_1**2)
-AngleBodyCenterX_1 = PI/2 - math.atan2(TotalY_1, TotalX_1)
+AngleBodyCenterX_1 = math.atan2(TotalY_1, TotalX_1)
 RollZ_1 = math.tan(RotZ * PI/180) * TotalX_1
 PitchZ_1 = math.tan(RotX * PI/180) * TotalY_1
 BodyIKX_1 = math.cos(AngleBodyCenterX_1 + (RotY * PI/180)) * DistBodyCenterFeet_1 - TotalX_1
@@ -143,7 +143,7 @@ BodyIKZ_1 = RollZ_1 + PitchZ_1
 TotalY_2 = FeetPosY_2 + BodyCenterOffsetY_2 + PosY
 TotalX_2 = FeetPosX_2 + BodyCenterOffsetX_2 + PosX
 DistBodyCenterFeet_2 = math.sqrt(TotalY_2**2 + TotalX_2**2)
-AngleBodyCenterX_2 = PI/2 - math.atan2(TotalY_2, TotalX_2)
+AngleBodyCenterX_2 = math.atan2(TotalY_2, TotalX_2)
 RollZ_2 = math.tan(RotZ * PI/180) * TotalX_2
 PitchZ_2 = math.tan(RotX * PI/180) * TotalY_2
 BodyIKX_2 = math.cos(AngleBodyCenterX_2 + (RotY * PI/180)) * DistBodyCenterFeet_2 - TotalX_2
@@ -154,7 +154,7 @@ BodyIKZ_2 = RollZ_2 + PitchZ_2
 TotalY_3 = FeetPosY_3 + BodyCenterOffsetY_3 + PosY
 TotalX_3 = FeetPosX_3 + BodyCenterOffsetX_3 + PosX
 DistBodyCenterFeet_3 = math.sqrt(TotalY_3**2 + TotalX_3**2)
-AngleBodyCenterX_3 = PI/2 - math.atan2(TotalY_3, TotalX_3)
+AngleBodyCenterX_3 = math.atan2(TotalY_3, TotalX_3)
 RollZ_3 = math.tan(RotZ * PI/180) * TotalX_3
 PitchZ_3 = math.tan(RotX * PI/180) * TotalY_3
 BodyIKX_3 = math.cos(AngleBodyCenterX_3 + (RotY * PI/180)) * DistBodyCenterFeet_3 - TotalX_3
@@ -165,7 +165,7 @@ BodyIKZ_3 = RollZ_3 + PitchZ_3
 TotalY_4 = FeetPosY_4 + BodyCenterOffsetY_4 + PosY
 TotalX_4 = FeetPosX_4 + BodyCenterOffsetX_4 + PosX
 DistBodyCenterFeet_4 = math.sqrt(TotalY_4**2 + TotalX_4**2)
-AngleBodyCenterX_4 = PI/2 - math.atan2(TotalY_4, TotalX_4)
+AngleBodyCenterX_4 = math.atan2(TotalY_4, TotalX_4)
 RollZ_4 = math.tan(RotZ * PI/180) * TotalX_4
 PitchZ_4 = math.tan(RotX * PI/180) * TotalY_4
 BodyIKX_4 = math.cos(AngleBodyCenterX_4 + (RotY * PI/180)) * DistBodyCenterFeet_4 - TotalX_4
@@ -176,7 +176,7 @@ BodyIKZ_4 = RollZ_4 + PitchZ_4
 TotalY_5 = FeetPosY_5 + BodyCenterOffsetY_5 + PosY
 TotalX_5 = FeetPosX_5 + BodyCenterOffsetX_5 + PosX
 DistBodyCenterFeet_5 = math.sqrt(TotalY_5**2 + TotalX_5**2)
-AngleBodyCenterX_5 = PI/2 - math.atan2(TotalY_5, TotalX_5)
+AngleBodyCenterX_5 = math.atan2(TotalY_5, TotalX_5)
 RollZ_5 = math.tan(RotZ * PI/180) * TotalX_5
 PitchZ_5 = math.tan(RotX * PI/180) * TotalY_5
 BodyIKX_5 = math.cos(AngleBodyCenterX_5 + (RotY * PI/180)) * DistBodyCenterFeet_5 - TotalX_5
@@ -187,7 +187,7 @@ BodyIKZ_5 = RollZ_5 + PitchZ_5
 TotalY_6 = FeetPosY_6 + BodyCenterOffsetY_6 + PosY
 TotalX_6 = FeetPosX_6 + BodyCenterOffsetX_6 + PosX
 DistBodyCenterFeet_6 = math.sqrt(TotalY_6**2 + TotalX_6**2)
-AngleBodyCenterX_6 = PI/2 - math.atan2(TotalY_6, TotalX_6)
+AngleBodyCenterX_6 = math.atan2(TotalY_6, TotalX_6)
 RollZ_6 = math.tan(RotZ * PI/180) * TotalX_6
 PitchZ_6 = math.tan(RotX * PI/180) * TotalY_6
 BodyIKX_6 = math.cos(AngleBodyCenterX_6 + (RotY * PI/180)) * DistBodyCenterFeet_6 - TotalX_6
@@ -277,40 +277,141 @@ IKTibiaAngle_6 = 90 - TAngle_6 * 180/PI
 IKFemurAngle_6 = 90 - (IKA1_6 + IKA2_6) * 180/PI
 IKCoxaAngle_6 = 90 - math.atan2(NewPosY_6, NewPosX_6) * 180/PI
 
+Coxa = [IKCoxaAngle_1 - 62.553, IKCoxaAngle_2, IKCoxaAngle_3 + 62.553, IKCoxaAngle_4 - (180 + 62.553), IKCoxaAngle_5 - 180, IKCoxaAngle_6 - 180 + 62.553]
+Femur = [IKFemurAngle_1, IKFemurAngle_2, IKFemurAngle_3, IKFemurAngle_4, IKFemurAngle_5, IKFemurAngle_6]
+Tibia = [IKTibiaAngle_1, IKTibiaAngle_2, IKTibiaAngle_3, IKTibiaAngle_4, IKTibiaAngle_5, IKTibiaAngle_6]
 
+#Coxa[0, 1, 2, 3, 4, 5]
+#Femur[0, 1, 2, 3, 4, 5]
+#Tibia[0, 1, 2, 3, 4, 5]
+"""
 # Dynamixel Angles
 # Leg 1
-CoxaAngle_1 = (IKCoxaAngle_1 - 62.553) * (4096/360)
-FemurAngle_1 = IKFemurAngle_1 * (4096/360)
-TibiaAngle_1 = IKTibiaAngle_1 * (4096/360)
+Coxa[0] = IKCoxaAngle_1 - 62.553
+Femur[0] = IKFemurAngle_1
+Tibia[0] = IKTibiaAngle_1
 
 # Leg 2
-CoxaAngle_2 = IKCoxaAngle_2 * (4096/360)
-FemurAngle_2 = IKFemurAngle_2 * (4096/360)
-TibiaAngle_2 = IKTibiaAngle_2 * (4096/360)
+Coxa[1] = IKCoxaAngle_2
+Femur[1] = IKFemurAngle_2
+Tibia[1] = IKTibiaAngle_2
 
 # Leg 3
-CoxaAngle_3 = (IKCoxaAngle_3 + 62.553) * (4096/360)
-FemurAngle_3 = IKFemurAngle_3 * (4096/360)
-TibiaAngle_3 = IKTibiaAngle_3 * (4096/360)
+Coxa[2] = (IKCoxaAngle_3 + 62.553)
+Femur[2] = IKFemurAngle_3
+Tibia[2] = IKTibiaAngle_3
 
 # Leg 4
-CoxaAngle_4 = IKCoxaAngle_4 - (180 + 62.553) * (4096/360)
-FemurAngle_4 = IKFemurAngle_4 * (4096/360)
-TibiaAngle_4 = IKTibiaAngle_4 * (4096/360)
+Coxa[3] = IKCoxaAngle_4 - (180 + 62.553)
+Femur[3] = IKFemurAngle_4
+Tibia[3] = IKTibiaAngle_4
 
 # Leg 5
-CoxaAngle_5 = (IKCoxaAngle_5 - 180) * (4096/360)
-FemurAngle_5 = IKFemurAngle_5 * (4096/360)
-TibiaAngle_5 = IKTibiaAngle_5 * (4086/360)
+Coxa[4] = (IKCoxaAngle_5 - 180)
+Femur[4] = IKFemurAngle_5
+Tibia[4] = IKTibiaAngle_5
 
 # Leg 6
-CoxaAngle_6 = (IKCoxaAngle_6 - 180 + 62.553) * (4096/360)
-FemurAngle_6 = IKFemurAngle_6 * (4096/360)
-TibiaAngle_6 = IKTibiaAngle_6 * (4096/360)
+Coxa[5] = (IKCoxaAngle_6 - 180 + 62.553)
+Femur[5] = IKFemurAngle_6
+Tibia[5] = IKTibiaAngle_6
+"""
+#print(Coxa[1])
+#print(Femur[1])
+#print(Tibia[1])
+print(IKA1_2)
+print(FeetPosX_1)
+print(Coxa[0])
+print(Femur[0])
+print(Tibia[0])
+
+for i in range(6):
+    if Coxa[i] < 0:
+        Coxa[i] = Coxa[i] * -1
+        Cdiv = Coxa[i] // 360
+        Coxa[i] = round(Coxa[i] - (360 * Cdiv) * (4096/360))
+        if Coxa[i] == 4096:
+            Coxa[i] = 0
+    elif round(Coxa[i]* (4096/360)) == 4096:
+        Coxa[i] = round(Coxa[i]* (4096/360))
+        Coxa[i] = 0
+    else:
+        Coxa[i] = round(Coxa[i]* (4096/360))
+
+for j in range(6):
+    if Femur[j] < 0:
+        Femur[j] = Femur[i] * -1
+        Fdiv = Femur[i] // 360
+        Femur[j] = round(Femur[i] - (360 * Fdiv) * (4096/360))
+        if Femur[j] == 4096:
+            Femur[j] = 0
+    elif round(Femur[i]* (4096/360)) == 4096:
+        Femur[j] = round(Femur[i]* (4096/360))
+        Femur[j] = 0
+    else:
+        Femur[j] = round(Femur[i]* (4096/360))
+
+for k in range(6):
+    if Tibia[k] < 0:
+        Tibia[k] = Tibia[i] * -1
+        Tdiv = Tibia[i] // 360
+        Tibia[k] = round(Tibia[i] - (360 * Tdiv) * (4096/360))
+        if Tibia[k] == 4096:
+            Tibia[k] = 0
+    elif round(Tibia[i] * (4096/360)) == 4096:
+        Tibia[k] = round(Tibia[i] * (4096/360))
+        Tibia[k] = 0
+    else:
+        Tibia[k] = round(Tibia[i] * (4096/360))
+
+print(Coxa[0])
+print(Femur[0])
+print(Tibia[0])
+
+print(Coxa[1])
+print(Femur[1])
+print(Tibia[1])
+
+#for a in range(6):
+#    if Coxa[a] == :
 
 
 
+#Coxa[1] = 2048
+#Femur[1] = 1024+512
+#Tibia[1] = 1024
+
+# Give Angles to Dynamixel
+# Leg 1
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(Coxa[0])), DXL_HIBYTE(DXL_LOWORD(Coxa[0])), DXL_LOBYTE(DXL_HIWORD(Coxa[0])), DXL_HIBYTE(DXL_HIWORD(Coxa[0]))]
+dxl_addparam_result = groupSyncWrite.addParam(1, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(Femur[0])), DXL_HIBYTE(DXL_LOWORD(Femur[0])), DXL_LOBYTE(DXL_HIWORD(Femur[0])), DXL_HIBYTE(DXL_HIWORD(Femur[0]))]
+dxl_addparam_result = groupSyncWrite.addParam(11, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(Tibia[0])), DXL_HIBYTE(DXL_LOWORD(Tibia[0])), DXL_LOBYTE(DXL_HIWORD(Tibia[0])), DXL_HIBYTE(DXL_HIWORD(Tibia[0]))]
+dxl_addparam_result = groupSyncWrite.addParam(21, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+
+
+# Leg 2
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(Coxa[1])), DXL_HIBYTE(DXL_LOWORD(Coxa[1])), DXL_LOBYTE(DXL_HIWORD(Coxa[1])), DXL_HIBYTE(DXL_HIWORD(Coxa[1]))]
+dxl_addparam_result = groupSyncWrite.addParam(2, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(Femur[1])), DXL_HIBYTE(DXL_LOWORD(Femur[1])), DXL_LOBYTE(DXL_HIWORD(Femur[1])), DXL_HIBYTE(DXL_HIWORD(Femur[1]))]
+dxl_addparam_result = groupSyncWrite.addParam(12, param_goal_position)
+
+param_goal_position = [DXL_LOBYTE(DXL_LOWORD(Tibia[1])), DXL_HIBYTE(DXL_LOWORD(Tibia[1])), DXL_LOBYTE(DXL_HIWORD(Tibia[1])), DXL_HIBYTE(DXL_HIWORD(Tibia[1]))]
+dxl_addparam_result = groupSyncWrite.addParam(22, param_goal_position)
+
+dxl_comm_result = groupSyncWrite.txPacket()
+groupSyncWrite.clearParam()
+
+
+
+"""
 # Give Angles to Dynamixel
 
 # Leg 1
@@ -395,7 +496,7 @@ dxl_addparam_result = groupSyncWrite.addParam(26, param_goal_position)
 
 dxl_comm_result = groupSyncWrite.txPacket()
 groupSyncWrite.clearParam()
-   
+"""
     
 # 포트 닫기
 portHandler.closePort()
