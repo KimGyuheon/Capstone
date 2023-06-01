@@ -103,7 +103,6 @@ def FemurUp_246():
     time.sleep(0.1)
     groupSyncWrite.clearParam()
 
-
 # Step Index
 i = 0
 
