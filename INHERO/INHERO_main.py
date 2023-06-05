@@ -74,46 +74,6 @@ for id in ID:
 # groupSyncWrite 객체 생성
 groupSyncWrite = GroupSyncWrite(portHandler, packetHandler, 116, 4)
 
-# Inverse Kinematics
-PI = math.pi
-
-# Robot Geometry
-CoxaLength = 60
-FemurLength = 61.847
-TibiaLength = 126.487
-
-BodySideLength = 98.5
-BodyCenterOffset1 = 64.84
-BodyCenterOffset2 = 124.842
-
-# Body Center Offset X
-BodyCenterOffsetX_1 = BodyCenterOffset1
-BodyCenterOffsetX_2 = BodySideLength
-BodyCenterOffsetX_3 = BodyCenterOffset1
-BodyCenterOffsetX_4 = -BodyCenterOffset1
-BodyCenterOffsetX_5 = -BodySideLength
-BodyCenterOffsetX_6 = -BodyCenterOffset1
-
-# Body Center Offset Y
-BodyCenterOffsetY_1 = BodyCenterOffset2
-BodyCenterOffsetY_2 = 0
-BodyCenterOffsetY_3 = -BodyCenterOffset2
-BodyCenterOffsetY_4 = -BodyCenterOffset2
-BodyCenterOffsetY_5 = 0
-BodyCenterOffsetY_6 = BodyCenterOffset2
-
-# Angles of Feet
-FeetAngle_1 = 45
-FeetAngle_2 = 0
-FeetAngle_3 = -45
-FeetAngle_4 = -135
-FeetAngle_5 = 180
-FeetAngle_6 = 135
-
-# Angles of Bracket
-FemurBracketAngle = 14.036
-TibiaBracketAngle = 32.079 - FemurBracketAngle
-
 Mode_1 = 0
 Mode_2 = 0
 Mode_3 = 0
@@ -319,10 +279,10 @@ class InheroJoy(Controller):
         # Mode 4
         elif self.mode == 'UP' and Mode_4 == 1:
             print("Forward")
-            INHERO_dance1.Generating()
+            INHERO_tiltmove.Generating3()
         elif self.mode == 'DOWN' and Mode_4 == 1:
             print("Backward")
-            INHERO_dance2.Generating()
+            INHERO_tiltmove.Generating4()
         elif self.mode == 'LEFT' and Mode_4 == 1:
             print("-3 degree")
             INHERO_tiltmove.Generating1()
@@ -332,10 +292,10 @@ class InheroJoy(Controller):
 
         # Mode 5
         elif self.mode == 'UP' and Mode_5 == 1:
-            print("dance")
+            print("forward")
             INHERO_tiltmove.Generating3()
         elif self.mode == 'DOWN' and Mode_5 == 1:
-            print("Wiggle")
+            print("backward")
             INHERO_tiltmove.Generating4()
         elif self.mode == 'LEFT' and Mode_5 == 1:
             print("-3 degree")

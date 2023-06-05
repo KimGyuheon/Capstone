@@ -127,66 +127,66 @@ def Generating():
             FemurUp_135()
 
             # Leg 1
-            PosX_1 = BodyCenterOffsetX_1 + 150 * math.cos(math.radians(FeetAngle_1)) + 35
-            PosY_1 = BodyCenterOffsetY_1 + 150 * math.sin(math.radians(FeetAngle_1)) - 35
+            PosX_1 = BodyCenterOffsetX_1 + 150 * math.cos(math.radians(FeetAngle_1)) + 30
+            PosY_1 = BodyCenterOffsetY_1 + 150 * math.sin(math.radians(FeetAngle_1)) - 30
             PosZ_1 = -TibiaLength * 2 / 3
 
             # Leg 2
-            PosX_2 = BodyCenterOffsetX_2 + 150 * math.cos(math.radians(FeetAngle_2)) - 35
-            PosY_2 = BodyCenterOffsetY_2 + 150 * math.sin(math.radians(FeetAngle_2)) + 35
+            PosX_2 = BodyCenterOffsetX_2 + 150 * math.cos(math.radians(FeetAngle_2)) - 30
+            PosY_2 = BodyCenterOffsetY_2 + 150 * math.sin(math.radians(FeetAngle_2)) + 30
             PosZ_2 = -TibiaLength * 2 / 3
 
             # Leg 3
-            PosX_3 = BodyCenterOffsetX_3 + 150 * math.cos(math.radians(FeetAngle_3)) + 35
-            PosY_3 = BodyCenterOffsetY_3 + 150 * math.sin(math.radians(FeetAngle_3)) - 35
+            PosX_3 = BodyCenterOffsetX_3 + 150 * math.cos(math.radians(FeetAngle_3)) + 30
+            PosY_3 = BodyCenterOffsetY_3 + 150 * math.sin(math.radians(FeetAngle_3)) - 30
             PosZ_3 = -TibiaLength * 2 / 3
 
             # Leg 4
-            PosX_4 = BodyCenterOffsetX_4 + 150 * math.cos(math.radians(FeetAngle_4)) - 35
-            PosY_4 = BodyCenterOffsetY_4 + 150 * math.sin(math.radians(FeetAngle_4)) + 35
+            PosX_4 = BodyCenterOffsetX_4 + 150 * math.cos(math.radians(FeetAngle_4)) - 30
+            PosY_4 = BodyCenterOffsetY_4 + 150 * math.sin(math.radians(FeetAngle_4)) + 30
             PosZ_4 = -TibiaLength * 2 / 3
 
             # Leg 5
-            PosX_5 = BodyCenterOffsetX_5 + 150 * math.cos(math.radians(FeetAngle_5)) + 35
-            PosY_5 = BodyCenterOffsetY_5 + 150 * math.sin(math.radians(FeetAngle_5)) - 35
+            PosX_5 = BodyCenterOffsetX_5 + 150 * math.cos(math.radians(FeetAngle_5)) + 30
+            PosY_5 = BodyCenterOffsetY_5 + 150 * math.sin(math.radians(FeetAngle_5)) - 30
             PosZ_5 = -TibiaLength * 2 / 3
 
             # Leg 6
-            PosX_6 = BodyCenterOffsetX_6 + 150 * math.cos(math.radians(FeetAngle_6)) - 35
-            PosY_6 = BodyCenterOffsetY_6 + 150 * math.sin(math.radians(FeetAngle_6)) + 35
+            PosX_6 = BodyCenterOffsetX_6 + 150 * math.cos(math.radians(FeetAngle_6)) - 30
+            PosY_6 = BodyCenterOffsetY_6 + 150 * math.sin(math.radians(FeetAngle_6)) + 30
             PosZ_6 = -TibiaLength * 2 / 3
 
         elif i == 1: # 2 STEP
             FemurUp_246()
 
             # Leg 1
-            PosX_1 = BodyCenterOffsetX_1 + 150 * math.cos(math.radians(FeetAngle_1)) - 35
-            PosY_1 = BodyCenterOffsetY_1 + 150 * math.sin(math.radians(FeetAngle_1)) + 35
+            PosX_1 = BodyCenterOffsetX_1 + 150 * math.cos(math.radians(FeetAngle_1)) - 30
+            PosY_1 = BodyCenterOffsetY_1 + 150 * math.sin(math.radians(FeetAngle_1)) + 30
             PosZ_1 = -TibiaLength * 2 / 3
 
             # Leg 2
-            PosX_2 = BodyCenterOffsetX_2 + 150 * math.cos(math.radians(FeetAngle_2)) + 35
-            PosY_2 = BodyCenterOffsetY_2 + 150 * math.sin(math.radians(FeetAngle_2)) - 35
+            PosX_2 = BodyCenterOffsetX_2 + 150 * math.cos(math.radians(FeetAngle_2)) + 30
+            PosY_2 = BodyCenterOffsetY_2 + 150 * math.sin(math.radians(FeetAngle_2)) - 30
             PosZ_2 = -TibiaLength * 2 / 3
 
             # Leg 3
-            PosX_3 = BodyCenterOffsetX_3 + 150 * math.cos(math.radians(FeetAngle_3)) - 35
-            PosY_3 = BodyCenterOffsetY_3 + 150 * math.sin(math.radians(FeetAngle_3)) + 35
+            PosX_3 = BodyCenterOffsetX_3 + 150 * math.cos(math.radians(FeetAngle_3)) - 30
+            PosY_3 = BodyCenterOffsetY_3 + 150 * math.sin(math.radians(FeetAngle_3)) + 30
             PosZ_3 = -TibiaLength * 2 / 3
 
             # Leg 4
-            PosX_4 = BodyCenterOffsetX_4 + 150 * math.cos(math.radians(FeetAngle_4)) + 35
-            PosY_4 = BodyCenterOffsetY_4 + 150 * math.sin(math.radians(FeetAngle_4)) - 35
+            PosX_4 = BodyCenterOffsetX_4 + 150 * math.cos(math.radians(FeetAngle_4)) + 30
+            PosY_4 = BodyCenterOffsetY_4 + 150 * math.sin(math.radians(FeetAngle_4)) - 30
             PosZ_4 = -TibiaLength * 2 / 3
 
             # Leg 5
-            PosX_5 = BodyCenterOffsetX_5 + 150 * math.cos(math.radians(FeetAngle_5)) - 35
-            PosY_5 = BodyCenterOffsetY_5 + 150 * math.sin(math.radians(FeetAngle_5)) + 35
+            PosX_5 = BodyCenterOffsetX_5 + 150 * math.cos(math.radians(FeetAngle_5)) - 30
+            PosY_5 = BodyCenterOffsetY_5 + 150 * math.sin(math.radians(FeetAngle_5)) + 30
             PosZ_5 = -TibiaLength * 2 / 3
 
             # Leg 6
-            PosX_6 = BodyCenterOffsetX_6 + 150 * math.cos(math.radians(FeetAngle_6)) + 35
-            PosY_6 = BodyCenterOffsetY_6 + 150 * math.sin(math.radians(FeetAngle_6)) - 35
+            PosX_6 = BodyCenterOffsetX_6 + 150 * math.cos(math.radians(FeetAngle_6)) + 30
+            PosY_6 = BodyCenterOffsetY_6 + 150 * math.sin(math.radians(FeetAngle_6)) - 30
             PosZ_6 = -TibiaLength * 2 / 3
 
         else:
@@ -260,6 +260,8 @@ def Generating():
 
         # Leg 5
         CoxaAngle_5 = round((CoxaAngle_5) * (4096/360)) + 2048
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         FemurAngle_5 = round((FemurAngle_5 + FemurBracketAngle) * (4096/360)) + 2048
         TibiaAngle_5 = round((TibiaAngle_5 + TibiaBracketAngle) * (4096/360)) + 2048
         #print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")

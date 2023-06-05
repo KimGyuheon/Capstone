@@ -75,7 +75,7 @@ FeetAngle_1 = 45
 FeetAngle_2 = 0
 FeetAngle_3 = -45
 FeetAngle_4 = -135
-FeetAngle_5 = 180
+FeetAngle_5 = -180
 FeetAngle_6 = 135
 
 # Angles of Bracket
@@ -224,7 +224,7 @@ def Generating():
         CoxaAngle_5 = math.degrees(math.atan2((PosY_5 - BodyCenterOffsetY_5), (PosX_5 - BodyCenterOffsetX_5))) - FeetAngle_5
         TibiaAngle_5 = -math.degrees(math.acos(((PosX_5 - BodyCenterOffsetX_5)**2 + (PosY_5 - BodyCenterOffsetY_5)**2 + PosZ_5**2 + CoxaLength**2 - FemurLength**2 - TibiaLength**2 - 2 * CoxaLength * math.sqrt((PosX_5 - BodyCenterOffsetX_5)**2 + (PosY_5 - BodyCenterOffsetY_5)**2)) / (2 * FemurLength * TibiaLength)))
         FemurAngle_5 = math.degrees(math.atan2((FemurLength + TibiaLength * math.cos(math.radians(TibiaAngle_5))) * PosZ_5 - TibiaLength * math.sin(math.radians(TibiaAngle_5)) * (math.sqrt((PosX_5 - BodyCenterOffsetX_5)**2 + (PosY_5 - BodyCenterOffsetY_5)**2) - CoxaLength), (math.sqrt((PosX_5 - BodyCenterOffsetX_5)**2 + (PosY_5 - BodyCenterOffsetY_5)**2) - CoxaLength) * (FemurLength + TibiaLength * math.cos(math.radians(TibiaAngle_5))) + PosZ_5 * TibiaLength * math.sin(math.radians(TibiaAngle_5))))
-#        print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
+        #print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
 
         # Leg 6
         CoxaAngle_6 = math.degrees(math.atan2((PosY_6 - BodyCenterOffsetY_6), (PosX_6 - BodyCenterOffsetX_6))) - FeetAngle_6
@@ -260,9 +260,11 @@ def Generating():
 
         # Leg 5
         CoxaAngle_5 = round((CoxaAngle_5) * (4096/360)) + 2048
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         FemurAngle_5 = round((FemurAngle_5 + FemurBracketAngle) * (4096/360)) + 2048
         TibiaAngle_5 = round((TibiaAngle_5 + TibiaBracketAngle) * (4096/360)) + 2048
-#        print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
+        #print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
 
         # Leg 6
         CoxaAngle_6 = round((CoxaAngle_6) * (4096/360)) + 2048
