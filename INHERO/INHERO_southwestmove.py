@@ -1,10 +1,9 @@
 from dynamixel_sdk import *
 import time
 import math
-import change_import as im
-PORT = im.port()
-## 사용할 포트와 프로토콜 버전 설정
-#PORT = '/dev/ttyUSB0'
+
+# 사용할 포트와 프로토콜 버전 설정
+PORT = '/dev/ttyUSB0'
 BAUDRATE = 57600
 PROTOCOL_VERSION = 2.0
 
@@ -85,15 +84,15 @@ TibiaBracketAngle = 32.079 - FemurBracketAngle
 def Generating():
 # Femur Up
     def FemurUp_135():
-        dxl_goal_position = 3000
+        dxl_goal_position = 3500
         param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
         dxl_addparam_result = groupSyncWrite.addParam(11, param_goal_position)
 
-        dxl_goal_position = 3000
+        dxl_goal_position = 3500
         param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
         dxl_addparam_result = groupSyncWrite.addParam(13, param_goal_position)
 
-        dxl_goal_position = 3000
+        dxl_goal_position = 3500
         param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
         dxl_addparam_result = groupSyncWrite.addParam(15, param_goal_position)
 
@@ -102,15 +101,15 @@ def Generating():
         groupSyncWrite.clearParam()
 
     def FemurUp_246():
-        dxl_goal_position = 3000
+        dxl_goal_position = 3500
         param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
         dxl_addparam_result = groupSyncWrite.addParam(12, param_goal_position)
 
-        dxl_goal_position = 3000
+        dxl_goal_position = 3500
         param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
         dxl_addparam_result = groupSyncWrite.addParam(14, param_goal_position)
 
-        dxl_goal_position = 3000
+        dxl_goal_position = 3500
         param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
         dxl_addparam_result = groupSyncWrite.addParam(16, param_goal_position)
 

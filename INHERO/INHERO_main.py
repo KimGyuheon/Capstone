@@ -35,8 +35,8 @@ else:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
 
-import change_import as im
-PORT = im.port()
+# 사용할 포트와 프로토콜 버전 설정
+PORT = '/dev/ttyUSB0'
 BAUDRATE = 57600
 PROTOCOL_VERSION = 2.0
 
@@ -285,10 +285,10 @@ class InheroJoy(Controller):
             INHERO_tiltmove.Generating4()
         elif self.mode == 'LEFT' and Mode_4 == 1:
             print("-3 degree")
-            INHERO_tiltmove.Generating1()
+            INHERO_tiltmove.Generating2()
         elif self.mode == 'RIGHT' and Mode_4 == 1:
             print("+3 degree")
-            INHERO_tiltmove.Generating2()
+            INHERO_tiltmove.Generating1()
 
         # Mode 5
         elif self.mode == 'UP' and Mode_5 == 1:
@@ -299,10 +299,10 @@ class InheroJoy(Controller):
             INHERO_tiltmove.Generating4()
         elif self.mode == 'LEFT' and Mode_5 == 1:
             print("-3 degree")
-            INHERO_tiltmove.Generating1()
+            INHERO_tiltmove.Generating2()
         elif self.mode == 'RIGHT' and Mode_5 == 1:
             print("+3 degree")
-            INHERO_tiltmove.Generating2()
+            INHERO_tiltmove.Generating1()
 
 controller = InheroJoy(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen()

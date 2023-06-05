@@ -2,10 +2,9 @@ from dynamixel_sdk import *
 import time
 import math
 import numpy as np
-import change_import as im
-PORT = im.port()
-## 사용할 포트와 프로토콜 버전 설정
-#PORT = '/dev/ttyUSB0'
+
+# 사용할 포트와 프로토콜 버전 설정
+PORT = '/dev/ttyUSB0'
 BAUDRATE = 57600
 PROTOCOL_VERSION = 2.0
 
