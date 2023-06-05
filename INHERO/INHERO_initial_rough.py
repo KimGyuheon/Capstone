@@ -1,9 +1,10 @@
 from dynamixel_sdk import *
 import time
 import math
-
 import change_import as im
 PORT = im.port()
+## 사용할 포트와 프로토콜 버전 설정
+#PORT = '/dev/ttyUSB0'
 BAUDRATE = 57600
 PROTOCOL_VERSION = 2.0
 
@@ -81,37 +82,39 @@ FeetAngle_6 = 135
 FemurBracketAngle = 14.036
 TibiaBracketAngle = 32.079 - FemurBracketAngle
 
+h=3
+
 def Generating():
     # Control Input
     # Leg 1
-    PosX_1 = BodyCenterOffsetX_1 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.cos(math.radians(FeetAngle_1))
-    PosY_1 = BodyCenterOffsetY_1 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.sin(math.radians(FeetAngle_1))
-    PosZ_1 = 0
+    PosX_1 = BodyCenterOffsetX_1 + 150 * math.cos(math.radians(FeetAngle_1))
+    PosY_1 = BodyCenterOffsetY_1 + 150 * math.sin(math.radians(FeetAngle_1))
+    PosZ_1 = -TibiaLength * h / 3
 
     # Leg 2
-    PosX_2 = BodyCenterOffsetX_2 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.cos(math.radians(FeetAngle_2))
-    PosY_2 = BodyCenterOffsetY_2 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.sin(math.radians(FeetAngle_2))
-    PosZ_2 = 0
+    PosX_2 = BodyCenterOffsetX_2 + 150 * math.cos(math.radians(FeetAngle_2))
+    PosY_2 = BodyCenterOffsetY_2 + 150 * math.sin(math.radians(FeetAngle_2))
+    PosZ_2 = -TibiaLength * h / 3
 
     # Leg 3
-    PosX_3 = BodyCenterOffsetX_3 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.cos(math.radians(FeetAngle_3))
-    PosY_3 = BodyCenterOffsetY_3 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.sin(math.radians(FeetAngle_3))
-    PosZ_3 = 0
+    PosX_3 = BodyCenterOffsetX_3 + 150 * math.cos(math.radians(FeetAngle_3))
+    PosY_3 = BodyCenterOffsetY_3 + 150 * math.sin(math.radians(FeetAngle_3))
+    PosZ_3 = -TibiaLength * h / 3
 
     # Leg 4
-    PosX_4 = BodyCenterOffsetX_4 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.cos(math.radians(FeetAngle_4))
-    PosY_4 = BodyCenterOffsetY_4 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.sin(math.radians(FeetAngle_4))
-    PosZ_4 = 0
+    PosX_4 = BodyCenterOffsetX_4 + 150 * math.cos(math.radians(FeetAngle_4))
+    PosY_4 = BodyCenterOffsetY_4 + 150 * math.sin(math.radians(FeetAngle_4))
+    PosZ_4 = -TibiaLength * h / 3
 
     # Leg 5
-    PosX_5 = BodyCenterOffsetX_5 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.cos(math.radians(FeetAngle_5))
-    PosY_5 = BodyCenterOffsetY_5 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.sin(math.radians(FeetAngle_5))
-    PosZ_5 = 0
+    PosX_5 = BodyCenterOffsetX_5 + 150 * math.cos(math.radians(FeetAngle_5))
+    PosY_5 = BodyCenterOffsetY_5 + 150 * math.sin(math.radians(FeetAngle_5))
+    PosZ_5 = -TibiaLength * h / 3
 
     # Leg 6
-    PosX_6 = BodyCenterOffsetX_6 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.cos(math.radians(FeetAngle_6))
-    PosY_6 = BodyCenterOffsetY_6 + (CoxaLength + FemurLength + TibiaLength - 0.00000000000001) * math.sin(math.radians(FeetAngle_6))
-    PosZ_6 = 0
+    PosX_6 = BodyCenterOffsetX_6 + 150 * math.cos(math.radians(FeetAngle_6))
+    PosY_6 = BodyCenterOffsetY_6 + 150 * math.sin(math.radians(FeetAngle_6))
+    PosZ_6 = -TibiaLength * h / 3
 
     # Angles
     # Leg 1

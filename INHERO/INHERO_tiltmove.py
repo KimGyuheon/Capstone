@@ -3,8 +3,8 @@ import time
 import math
 import numpy as np
 
-# 사용할 포트와 프로토콜 버전 설정
-PORT = '/dev/ttyUSB0'
+import change_import as im
+PORT = im.port()
 BAUDRATE = 57600
 PROTOCOL_VERSION = 2.0
 

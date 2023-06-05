@@ -2,6 +2,7 @@ from pyPS4Controller.controller import Controller
 from dynamixel_sdk import *
 import INHERO_initial
 import INHERO_initial2
+import INHERO_initial_rough
 import INHERO_forward
 import INHERO_backward
 import INHERO_leftmove
@@ -37,8 +38,8 @@ else:
             termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
         return ch
 
-# 사용할 포트와 프로토콜 버전 설정
-PORT = '/dev/ttyUSB0'
+import change_import as im
+PORT = im.port()
 BAUDRATE = 57600
 PROTOCOL_VERSION = 2.0
 
@@ -82,7 +83,8 @@ Mode_3 = 0
 Mode_4 = 0
 Mode_5 = 0
 Mode_6 = 0
-
+height = 0
+step = 0
 # Controller Settings
 class InheroJoy(Controller):
     def __init__(self, **kwargs):
@@ -172,7 +174,7 @@ class InheroJoy(Controller):
 
     def perform_action(self):
         global Mode_1, Mode_2, Mode_3, Mode_4, Mode_5, Mode_6
-
+        global height, step
         if self.mode == 0:
             print("INHERO Operating")
             INHERO_initial.Generating()
@@ -183,16 +185,18 @@ class InheroJoy(Controller):
             Mode_4 = 0
             Mode_5 = 0
             Mode_6 = 0
+            height = 2
             INHERO_initial.Generating()
             print("Present Mode : 1")
-        elif self.mode == 2: # Mode 2 (Press circle)
+        elif self.mode == 2: # Mode 2 (Press circle) : rough terrain mode
             Mode_1 = 0
             Mode_2 = 1
             Mode_3 = 0
             Mode_4 = 0
             Mode_5 = 0
             Mode_6 = 0
-            INHERO_initial.Generating()
+            height = 3
+            INHERO_initial_rough.Generating()
             print("Present Mode : 2")
         elif self.mode == 3: # Mode 3 (Press x)
             Mode_1 = 0
@@ -201,6 +205,7 @@ class InheroJoy(Controller):
             Mode_4 = 0
             Mode_5 = 0
             Mode_6 = 0
+            height = 2
             INHERO_initial.Generating()
             print("Present Mode : 3")
         elif self.mode == 4: # Mode 4 (Press square)
@@ -210,6 +215,7 @@ class InheroJoy(Controller):
             Mode_4 = 1
             Mode_5 = 0
             Mode_6 = 0
+            height = 2
             INHERO_initial.Generating()
             print("Present Mode : 4")
         elif self.mode == 5: # Mode 5 (Press share)
@@ -219,6 +225,7 @@ class InheroJoy(Controller):
             Mode_4 = 0
             Mode_5 = 1
             Mode_6 = 0
+            height = 2
             INHERO_initial.Generating()
             print("Present Mode : 5")
         elif self.mode == 6: # Mode 6 (Press options)
@@ -228,42 +235,66 @@ class InheroJoy(Controller):
             Mode_4 = 0
             Mode_5 = 0
             Mode_6 = 1
+            height = 2
             INHERO_initial.Generating()
             print("Present Mode : 6")
 
         # Mode 1
         if self.mode == 'UP' and Mode_1 == 1:
             print("Forward")
+            height = 2
+            step = 50
             INHERO_forward.Generating()
         elif self.mode == 'DOWN' and Mode_1 == 1:
             print("Backward")
+            height = 2
+            step = 50
             INHERO_backward.Generating()
         elif self.mode == 'LEFT' and Mode_1 == 1:
             print("Left")
+            height = 2
             INHERO_leftmove.Generating()
         elif self.mode == 'RIGHT' and Mode_1 == 1:
             print("Right")
+            height = 2
             INHERO_rightmove.Generating()
         elif self.mode == 'CCW' and Mode_1 == 1:
             print("Counter Clockwise")
+            height = 2
             INHERO_ccw.Generating()
         elif self.mode == 'CW' and Mode_1 == 1:
             print("Clockwise")
+            height = 2
             INHERO_cw.Generating()
 
         # Mode 2
         elif self.mode == 'UP' and Mode_2 == 1:
             print("Forward")
+            height = 3
+            step = 50
             INHERO_forward.Generating()
         elif self.mode == 'DOWN' and Mode_2 == 1:
             print("Backward")
+            height = 3
+            step = 50
             INHERO_backward.Generating()
         elif self.mode == 'LEFT' and Mode_2 == 1:
-            print("Counter Clockwise")
-            INHERO_ccw.Generating()
+            print("Left")
+            height = 3
+            INHERO_leftmove.Generating()
         elif self.mode == 'RIGHT' and Mode_2 == 1:
+            print("Right")
+            height = 3
+            INHERO_rightmove.Generating()
+        elif self.mode == 'CCW' and Mode_2 == 1:
+            print("Counter Clockwise")
+            height = 3
+            INHERO_ccw.Generating()
+        elif self.mode == 'CW' and Mode_2 == 1:
             print("Clockwise")
+            height = 3
             INHERO_cw.Generating()
+
 
         # Mode 3
         elif self.mode == 'UP' and Mode_3 == 1:
@@ -282,9 +313,11 @@ class InheroJoy(Controller):
         # Mode 4
         elif self.mode == 'UP' and Mode_4 == 1:
             print("Forward")
+            step = 50
             INHERO_tiltmove.Generating3()
         elif self.mode == 'DOWN' and Mode_4 == 1:
             print("Backward")
+            step = 50
             INHERO_tiltmove.Generating4()
         elif self.mode == 'LEFT' and Mode_4 == 1:
             print("-3 degree")
