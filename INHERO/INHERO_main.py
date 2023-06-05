@@ -14,6 +14,8 @@ import INHERO_southwestmove
 import INHERO_southeastmove
 import INHERO_dance1
 import INHERO_dance2
+import INHERO_dance3
+import INHERO_dance4
 import INHERO_tiltmove
 import time
 import math
@@ -120,6 +122,18 @@ class InheroJoy(Controller):
     def on_square_release(self):
         pass
 
+    def on_share_press(self):
+        self.mode = 5
+        self.perform_action()
+    def on_share_release(self):
+        pass
+
+    def on_options_press(self):
+        self.mode = 6
+        self.perform_action()
+    def on_options_release(self):
+        pass
+
     def on_up_arrow_press(self):
         self.mode = 'UP'
         self.perform_action()
@@ -144,34 +158,17 @@ class InheroJoy(Controller):
     def on_left_right_arrow_release(self):
         pass
 
-    def on_L3_press(self):
-        self.mode = 5
-        self.perform.action()
-    def on_L3_release(self):
+    def on_L1_press(self):
+        self.mode = 'CCW'
+        self.perform_action()
+    def on_L1_release(self):
         pass
 
-    def on_R3_press(self):
-        self.mode = 6
-        self.perform.action()
-    def on_R3_release(self):
+    def on_R1_press(self):
+        self.mode = 'CW'
+        self.perform_action()
+    def on_R1_release(self):
         pass
-
-    def on_L3_up(self,value):
-        input_value = round(-value/3000)
-        print("L3 up", input_vamlue)
-    def on_L3_down(self,value):
-        input_value = round(value/3000)
-        print("L3 down", input_value)
-    def on_L3_left(self,value):
-        input_value = round(-value/3000)
-        print("L3 left", input_value)
-    def on_L3_right(self,value):
-        input_value = round(value/3000)
-        print("L3 right", input_value)
-    def on_L3_x_at_rest(self):
-        print("L3 X break")
-    def on_L3_y_at_rest(self):
-        print("L3 Y break")
 
     def perform_action(self):
         global Mode_1, Mode_2, Mode_3, Mode_4, Mode_5, Mode_6
@@ -215,7 +212,7 @@ class InheroJoy(Controller):
             Mode_6 = 0
             INHERO_initial.Generating()
             print("Present Mode : 4")
-        elif self.mode == 5: # Mode 5 (Press L3)
+        elif self.mode == 5: # Mode 5 (Press share)
             Mode_1 = 0
             Mode_2 = 0
             Mode_3 = 0
@@ -224,7 +221,7 @@ class InheroJoy(Controller):
             Mode_6 = 0
             INHERO_initial.Generating()
             print("Present Mode : 5")
-        elif self.mode == 6: # Mode 6 (Press R3)
+        elif self.mode == 6: # Mode 6 (Press options)
             Mode_1 = 0
             Mode_2 = 0
             Mode_3 = 0
@@ -247,6 +244,12 @@ class InheroJoy(Controller):
         elif self.mode == 'RIGHT' and Mode_1 == 1:
             print("Right")
             INHERO_rightmove.Generating()
+        elif self.mode == 'CCW' and Mode_1 == 1:
+            print("Counter Clockwise")
+            INHERO_ccw.Generating()
+        elif self.mode == 'CW' and Mode_1 == 1:
+            print("Clockwise")
+            INHERO_cw.Generating()
 
         # Mode 2
         elif self.mode == 'UP' and Mode_2 == 1:
@@ -292,17 +295,17 @@ class InheroJoy(Controller):
 
         # Mode 5
         elif self.mode == 'UP' and Mode_5 == 1:
-            print("forward")
-            INHERO_tiltmove.Generating3()
+            print("Stable Wiggle")
+            INHERO_dance1.Generating()
         elif self.mode == 'DOWN' and Mode_5 == 1:
-            print("backward")
-            INHERO_tiltmove.Generating4()
+            print("Front Wave")
+            INHERO_dance3.Generating()
         elif self.mode == 'LEFT' and Mode_5 == 1:
-            print("-3 degree")
-            INHERO_tiltmove.Generating2()
+            print("Side Wave")
+            INHERO_dance4.Generating()
         elif self.mode == 'RIGHT' and Mode_5 == 1:
-            print("+3 degree")
-            INHERO_tiltmove.Generating1()
+            print("Wiggle")
+            INHERO_dance2.Generating()
 
 controller = InheroJoy(interface="/dev/input/js0", connecting_using_ds4drv=False)
 controller.listen()
