@@ -1,6 +1,6 @@
 from dynamixel_sdk import *
 
 def port():
-    PORT = '/dev/ttyUSB2'
+    PORT = '/dev/ttyUSB0'
     return PORT
 
