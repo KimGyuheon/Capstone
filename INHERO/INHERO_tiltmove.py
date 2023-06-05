@@ -2,9 +2,10 @@ from dynamixel_sdk import *
 import time
 import math
 import numpy as np
-
+import change_import as im
+PORT = im.port()
 # 사용할 포트와 프로토콜 버전 설정
-PORT = '/dev/ttyUSB0'
+#PORT = '/dev/ttyUSB0'
 BAUDRATE = 57600
 PROTOCOL_VERSION = 2.0
 
@@ -258,6 +259,8 @@ def Generating1():
 
         # Leg 5
         CoxaAngle_5 = round((CoxaAngle_5) * (4096/360)) + 2048
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         FemurAngle_5 = round((FemurAngle_5 + FemurBracketAngle) * (4096/360)) + 2048
         TibiaAngle_5 = round((TibiaAngle_5 + TibiaBracketAngle) * (4096/360)) + 2048
         #print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
@@ -530,6 +533,8 @@ def Generating2():
 
         # Leg 5
         CoxaAngle_5 = round((CoxaAngle_5) * (4096/360)) + 2048
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         FemurAngle_5 = round((FemurAngle_5 + FemurBracketAngle) * (4096/360)) + 2048
         TibiaAngle_5 = round((TibiaAngle_5 + TibiaBracketAngle) * (4096/360)) + 2048
         #print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
@@ -858,6 +863,8 @@ def Generating3():
 
         # Leg 5
         CoxaAngle_5 = round((CoxaAngle_5) * (4096/360)) + 2048
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         FemurAngle_5 = round((FemurAngle_5 + FemurBracketAngle) * (4096/360)) + 2048
         TibiaAngle_5 = round((TibiaAngle_5 + TibiaBracketAngle) * (4096/360)) + 2048
         #print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
@@ -1186,6 +1193,8 @@ def Generating4():
 
         # Leg 5
         CoxaAngle_5 = round((CoxaAngle_5) * (4096/360)) + 2048
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         FemurAngle_5 = round((FemurAngle_5 + FemurBracketAngle) * (4096/360)) + 2048
         TibiaAngle_5 = round((TibiaAngle_5 + TibiaBracketAngle) * (4096/360)) + 2048
         #print("Leg 5: ", CoxaAngle_5, FemurAngle_5, TibiaAngle_5, "\n")
