@@ -234,6 +234,8 @@ def Generating():
         # DXL Output
         # Leg 1
         CoxaAngle_1 = round((CoxaAngle_1) * (4096/360)) + 2048
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         FemurAngle_1 = round((FemurAngle_1 + FemurBracketAngle) * (4096/360)) + 2048
         TibiaAngle_1 = round((TibiaAngle_1 + TibiaBracketAngle) * (4096/360)) + 2048
         #print("Dynamixel Angle")

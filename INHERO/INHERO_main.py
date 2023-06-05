@@ -101,7 +101,7 @@ BodyCenterOffsetY_3 = -BodyCenterOffset2
 BodyCenterOffsetY_4 = -BodyCenterOffset2
 BodyCenterOffsetY_5 = 0
 BodyCenterOffsetY_6 = BodyCenterOffset2
-
+"""
 # Angles of Feet
 FeetAngle_1 = 45
 FeetAngle_2 = 0
@@ -109,7 +109,7 @@ FeetAngle_3 = -45
 FeetAngle_4 = -135
 FeetAngle_5 = 180
 FeetAngle_6 = 135
-
+"""
 # Angles of Bracket
 FemurBracketAngle = 14.036
 TibiaBracketAngle = 32.079 - FemurBracketAngle
@@ -332,10 +332,10 @@ class InheroJoy(Controller):
 
         # Mode 5
         elif self.mode == 'UP' and Mode_5 == 1:
-            print("dance")
+            print("forward")
             INHERO_tiltmove.Generating3()
         elif self.mode == 'DOWN' and Mode_5 == 1:
-            print("Wiggle")
+            print("backward")
             INHERO_tiltmove.Generating4()
         elif self.mode == 'LEFT' and Mode_5 == 1:
             print("-3 degree")

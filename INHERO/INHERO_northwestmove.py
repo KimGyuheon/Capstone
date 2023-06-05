@@ -288,6 +288,8 @@ def Generating():
         dxl_addparam_result = groupSyncWrite.addParam(4, param_goal_position)
 
         dxl_goal_position = CoxaAngle_5
+        if CoxaAngle_5 < 0:
+            CoxaAngle_5 = CoxaAngle_5 + 4096
         param_goal_position = [DXL_LOBYTE(DXL_LOWORD(dxl_goal_position)), DXL_HIBYTE(DXL_LOWORD(dxl_goal_position)), DXL_LOBYTE(DXL_HIWORD(dxl_goal_position)), DXL_HIBYTE(DXL_HIWORD(dxl_goal_position))]
         dxl_addparam_result = groupSyncWrite.addParam(5, param_goal_position)
 
