@@ -3,6 +3,10 @@
 > Intelligent Hexapod Robot - INHERO
 <br/>
 
+## Result
+최우수상 수상 (대구디지털혁신진흥원장상)
+참가팀 : 216 팀
+
 ## Introduction
 6족 보행로봇 **Hexapod** 로봇의 알고리즘의 프로세스를 기록한 Repository 이며 동시에 대학 교과목 Capstone Project의 결과물이다.
 <br/><br/><br/>
