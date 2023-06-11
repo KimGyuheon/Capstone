@@ -16,7 +16,7 @@ Schedule : 23.03.02 ~ 23.06.09
 
 
 ## Result
-최우수상 수상 (대구디지털혁신진흥원장상)
+최우수상 수상 (대구디지털혁신진흥원장상) <br/>
 참가팀 : 216 팀
 
 ![1_Inhero_DiagonalView](https://github.com/KimGyuheon/Capstone/assets/97663910/daff54d1-79a6-482a-a074-1cd7cdf233b4)
