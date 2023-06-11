@@ -3,17 +3,10 @@
 > Intelligent Hexapod Robot - INHERO
 <br/>
 
-## Result
-최우수상 수상 (대구디지털혁신진흥원장상)
-참가팀 : 216 팀
-
-![1_Inhero_DiagonalView](https://github.com/KimGyuheon/Capstone/assets/97663910/daff54d1-79a6-482a-a074-1cd7cdf233b4){: width="150%" height="150%"}
-
-<br/><br/><br/>
-
 ## Introduction
 6족 보행로봇 **Hexapod** 로봇의 알고리즘의 프로세스를 기록한 Repository 이며 동시에 대학 교과목 Capstone Project의 결과물이다.
 <br/><br/><br/>
+
 
 ## Project Info
 People : 4
@@ -21,13 +14,25 @@ People : 4
 Schedule : 23.03.02 ~ 23.06.09
 <br/>
 
+
+## Result
+최우수상 수상 (대구디지털혁신진흥원장상)
+참가팀 : 216 팀
+
+![1_Inhero_DiagonalView](https://github.com/KimGyuheon/Capstone/assets/97663910/daff54d1-79a6-482a-a074-1cd7cdf233b4)
+
+<br/><br/>
+
 ## Tech Stack
+# Software
 <div align="center">
  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"/>
  <img src="https://img.shields.io/badge/GITHUB-181717?style=flat&logo=github&logoColor=white"/>
 </div>
-  
+
 <br/>
+# Hardware
+Catia V5
 
 ## Environment
 <div align="center">
