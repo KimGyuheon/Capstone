@@ -23,7 +23,7 @@ Schedule : 23.03.02 ~ 23.06.09
 
 <br/><br/>
 
-## Tech Stack
+## Tech Stack <br/>
 # Software
 <div align="center">
  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"/>
