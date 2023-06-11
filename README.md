@@ -23,8 +23,8 @@ Schedule : 23.03.02 ~ 23.06.09
 
 <br/><br/>
 
-## Tech Stack <br/>
-# Software
+# Tech Stack <br/>
+## Software
 <div align="center">
  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"/>
  <img src="https://img.shields.io/badge/GITHUB-181717?style=flat&logo=github&logoColor=white"/>
@@ -32,13 +32,13 @@ Schedule : 23.03.02 ~ 23.06.09
 
 <br/>
 
-# Hardware
+## Hardware
 <div align="center">
  Catia V5
 </div>
 <br/>
 
-## Environment
+# Environment
 <div align="center">
  <img src="https://img.shields.io/badge/Raspberry PI-A22846?style=flat&logo=raspberrypi&logoColor=white"/>
  <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white"/>
@@ -46,7 +46,7 @@ Schedule : 23.03.02 ~ 23.06.09
 </div>
 <br/>
 
-## Directory
+# Directory
 __INHERO__
 > 실제 구동을 위한 코드 directory
 - INHERO_renewal의 역기구학 수식을 최적화한 코드
