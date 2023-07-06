@@ -38,7 +38,7 @@ Schedule : 23.03.02 ~ 23.06.09
 </div>
 <br/>
 
-# Environment
+## Environment
 <div align="center">
  <img src="https://img.shields.io/badge/Raspberry PI-A22846?style=flat&logo=raspberrypi&logoColor=white"/>
  <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white"/>
