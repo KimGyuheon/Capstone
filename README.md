@@ -72,6 +72,9 @@ __Kinematics__
 - Inverse_Kinematics - 역기구학적 해석
 <br/><br/>
 
+__Simulation__
+> 로봇 시뮬레이션 파일 directory
+- 로봇의 보행을 시뮬레이션 상에서 확인하기 위한 코드 
   
   
   
