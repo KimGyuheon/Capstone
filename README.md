@@ -16,7 +16,7 @@ Schedule : 23.03.02 ~ 23.06.09
 
 
 ## Result
-최우수상 수상 (대구디지털혁신진흥원장상) <br/>
+__최우수상 수상__ (대구디지털혁신진흥원장상) <br/>
 참가팀 : 216 팀
 
 ![1_Inhero_DiagonalView](https://github.com/KimGyuheon/Capstone/assets/97663910/daff54d1-79a6-482a-a074-1cd7cdf233b4)
@@ -24,7 +24,7 @@ Schedule : 23.03.02 ~ 23.06.09
 <br/><br/>
 
 # Tech Stack <br/>
-## Software
+__Software__
 <div align="center">
  <img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"/>
  <img src="https://img.shields.io/badge/GITHUB-181717?style=flat&logo=github&logoColor=white"/>
@@ -32,13 +32,13 @@ Schedule : 23.03.02 ~ 23.06.09
 
 <br/>
 
-## Hardware
+__Hardware__
 <div align="center">
  Catia V5
 </div>
 <br/>
 
-## Environment
+__Environment__
 <div align="center">
  <img src="https://img.shields.io/badge/Raspberry PI-A22846?style=flat&logo=raspberrypi&logoColor=white"/>
  <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white"/>
@@ -49,7 +49,12 @@ Schedule : 23.03.02 ~ 23.06.09
 # Directory
 __INHERO__
 > 실제 구동을 위한 코드 directory
-- INHERO_renewal의 역기구학 수식을 최적화한 코드
+- main을 실행하고 컨트롤러를 이용해 제어
+<br/>
+
+__INHERO_Optimization__
+> 최적화 directory
+- 역기구학식과 모터 제어 코드를 최적화
 <br/>
 
 __INHERO_renewal__
